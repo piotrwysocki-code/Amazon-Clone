@@ -3,13 +3,17 @@ import Cart from './Cart';
 import './Product.css';
 import { useStateValue } from "./StateProvider"
 
-function Product({id, title, image, price, rating}) {
+function Product({key, id, title, image, price, rating}) {
   const [{cart}, dispatch] = useStateValue();
-    
+  const generateKey = (pre) => {
+      return `${ pre }_${ new Date().getTime() }`;
+  }
+  
   const addToCart = () => {
     dispatch({
       type: 'ADD_TO_CART',
       item:{
+        key: generateKey(id),
         id: id,
         title: title,
         image: image,

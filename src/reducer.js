@@ -16,28 +16,26 @@ const reducer = (state, action) => {
                 ...state,
                 cart: [...state.cart, action.item],
             }
+        
         case "REMOVE_FROM_CART":
             const index = state.cart.findIndex((cartItem) => cartItem.id === action.id); 
             let newCart = [...state.cart];
 
             if(index >= 0){
                 newCart.splice(index, 1);
+
             } else {
-                console.warn(`Can't remove product (id: ${action.id}), not found`)
+                console.log(`Can't remove product (id: ${action.key}), not found`)
             }
-        
+            return {
+                ...state,
+                cart: newCart
+            }
         case "SET_USER":
                 return {
                     ...state,
                     user: action.user
                 }
-
-        return {
-            ...state,
-            cart: newCart
-        }
-
-
         default: 
             return state;
     }
