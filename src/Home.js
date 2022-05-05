@@ -1,6 +1,8 @@
 import React from 'react'
 import './Home.css'
 import Product from './Product.js'
+import Carousel from 'react-bootstrap/Carousel';
+
 
 function Home() {
   return (

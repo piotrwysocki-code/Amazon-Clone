@@ -14,7 +14,7 @@ function CartItem({key, id, title, image, price, rating}) {
     }
 
   return (
-    <Flipped flipId={key} key={key}>
+    <Flipped flipId={key + id} key={key}>
         <div className="cart_item">
             <div className="cart_img_box">        
                 <img className="cart_item_img" src={image} alt="cart_item"/>
